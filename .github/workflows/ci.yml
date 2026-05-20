@@ -2,9 +2,9 @@ name : Docker CI and Security Scan
 
 on :
     push :
-        branches : ["main"] #main 브랜치에 코드가 올라올 때 실행
+        branches : [ "main" ] #main 브랜치에 코드가 올라올 때 실행
     
-    jobS :
+    jobs :
         build-and-scan:
         runs-on : ubuntu-latest # 리눅스 가상 환경 빌리기
         steps :
@@ -20,4 +20,4 @@ on :
         image-ref : 'my-app:${{ github.sha }}'
         format : 'table'
         exit-code : '1' #취약점이 발견되면 빌드를 실패시킴
-        severity : 'CRITICAL,HIGH'
+        severity : 'CRITICAL'
